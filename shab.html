@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Wish</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transition: background 1s ease-in-out;
+        }
+        .page1 {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            background: red;
+            border-radius: 50%;
+            animation: float 5s ease-in-out infinite;
+        }
+        .balloon::before {
+            content: '\2665';
+            font-size: 30px;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-120vh); opacity: 0; }
+        }
+        .button {
+            padding: 10px 20px;
+            background: white;
+            border: none;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 1.5s infinite alternate;
+        }
+        @keyframes sparkle {
+            0% { opacity: 0.3; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .page2 {
+            display: none;
+            background: radial-gradient(circle, #1a1a2e, #16213e);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .moon {
+            width: 120px;
+            height: 120px;
+            position: relative;
+        }
+        .moon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border-radius: 50%;
+            box-shadow: 15px 15px 0 0 #f0f0f0;
+            transform: rotate(-45deg);
+        }
+        .moon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+            border-radius: 50%;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        .star {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: shooting-star 2s linear infinite;
+        }
+        @keyframes shooting-star {
+            0% { transform: translateX(0) translateY(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100vw) translateY(100vh); opacity: 0; }
+        }
+        .choice-buttons {
+            margin-top: 20px;
+        }
+        .choice-buttons button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .yes {
+            background: green;
+            color: white;
+        }
+        .no {
+            background: red;
+            color: white;
+        }
+        .choice-buttons button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="page1">
+        <h1>Happy Valentine's Day, Adina Noor!</h1>
+        <p>"Love isn't just about one day, it's about making every moment special!" ❤️</p>
+        <button class="button" onclick="nextPage()">Thank You</button>
+        <div class="balloon" style="left: 20%; animation-duration: 6s;"></div>
+        <div class="balloon" style="left: 50%; animation-duration: 4s;"></div>
+        <div class="balloon" style="left: 80%; animation-duration: 5s;"></div>
+        <script>
+            for (let i = 0; i < 50; i++) {
+                let sparkle = document.createElement("div");
+                sparkle.className = "sparkle";
+                sparkle.style.top = Math.random() * 100 + "%";
+                sparkle.style.left = Math.random() * 100 + "%";
+                sparkle.style.animationDuration = Math.random() * 1 + 0.5 + "s";
+                document.querySelector(".page1").appendChild(sparkle);
+            }
+        </script>
+    </div>
+    <div class="page2">
+        <div class="moon"></div>
+        <h2>I know that Valentine’s Day is haram, and I do not interfere with it.</h2>
+        <h3>So, would you like to take *Roza* (fast) with me, so that our relationship will be halal forever?</h3>
+        <div class="choice-buttons">
+            <button class="yes" onclick="alert('You said Yes! May our journey be blessed.')">Yes</button>
+            <button class="no" onclick="alert('You said No! But remember, I will always respect your choice.')">No</button>
+        </div>
+        <script>
+            for (let i = 0; i < 30; i++) {
+                let star = document.createElement("div");
+                star.className = "star";
+                star.style.top = Math.random() * 100 + "%";
+                star.style.left = Math.random() * 100 + "%";
+                star.style.animationDuration = Math.random() * 2 + 1 + "s";
+                document.querySelector(".page2").appendChild(star);
+            }
+            for (let i = 0; i < 5; i++) {
+                let shootingStar = document.createElement("div");
+                shootingStar.className = "shooting-star";
+                shootingStar.style.top = Math.random() * 100 + "%";
+                shootingStar.style.left = Math.random() * 100 + "%";
+                shootingStar.style.animationDuration = Math.random() * 2 + 1 + "s";
+                document.querySelector(".page2").appendChild(shootingStar);
+            }
+        </script>
+    </div>
+    <script>
+        function nextPage() {
+            document.querySelector('.page1').style.display = 'none';
+            document.querySelector('.page2').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
